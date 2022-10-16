@@ -1,6 +1,8 @@
-# Flaskary
+# TODO APP
 
-## Awesome Flask Framework
+This is an awesome todo application built on top of [flaskary](https://github.com/vicktter/flaskary) framework.
+
+For styling it uses [limpio css](https://https://github.com/vicktter/limpio)
 
 ### Getting Started
 
