@@ -26,6 +26,7 @@ def get_todos():
 @app.route("/")
 def index():
     todos = get_todos()
+    # return jsonify(todos)
     return render_template('index.html',
                            todos=todos
                            )
@@ -53,7 +54,7 @@ def complete_todo():
 
         with sqlite3.connect('db/app.db') as conn:
             cursor = conn.cursor()
-            query = f"update todo set completed = 'true' where title == '{item}' "
+            query = f"update todo set completed = 'completed' where title == '{item}' "
             cursor.execute(query)
         conn.close()
         return redirect(url_for('index'))

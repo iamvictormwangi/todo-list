@@ -6,10 +6,10 @@
 
 <main class="mih-100vh mx-auto bgc-black">
 
-  <section class="wrapper-3xs pt-10">
+  <section class="wrapper-3xs py-15 mah-85vh ovy-scroll">
 
     {% for todo in todos %}
-    <div class="box spacer-lg {% if todo.completed == 'true' %} bgc-teal {% else %} bgc-black-ltn-3 {% endif %}  bdrds-3">
+    <div class="box spacer-lg {% if todo.completed == 'completed' %} bgc-teal {% else %} bgc-black-ltn-3 {% endif %}  bdrds-3">
       <div class="box-wrapper">
         <div class="row">
           <div class="col-8 p-3">
@@ -17,7 +17,7 @@
           </div>
           <div class="col-4">
             <ul class="list d-flex">
-              <li class="list-item {% if todo.completed == 'true' %} vis-hidden {% endif %} ">
+              <li class="list-item {% if todo.completed == 'completed' %} vis-hidden {% endif %} ">
                 <form action="/complete_todo" method="POST">
                   <input type="text" class="d-none" id="todo-title" name="el" value="{{ todo.title }}" >
                   <button type="submit">
@@ -41,13 +41,18 @@
 
     {% endfor %}
 
-  <div class="c-white pos-fixed fixed-bottom b-0">
-    <form action="/add_todo_item" method="POST">
-      <input type="text" class="input bgc-black-ltn-3 pt-4 pb-3" name="todo-item" placeholder="Todo Item">
-      <button type="submit"><i class="bi bi-plus-circle fs-3xl ml-3"></i></button>
-    </form>
-  </div>
   </section>
+  <div class="c-white b-0 pb-5 wrapper-3xs mx-auto ml-50%">
+    <div class="d-flex jc-center">
+    <form action="/add_todo_item" method="POST" class="form w-100%">
+      <div class="d-flex jc-space-between mt-10">
+        <input type="text" class="input bgc-black-ltn-3 h-15 w-95%" name="todo-item" placeholder="Todo Item">
+        <button type="submit"><i class="bi bi-plus-circle fs-3xl ml-3"></i></button>
+      </div>
+    </form>
+    </div>
+  </div>
+
 </main>
 
 {% endblock %}
